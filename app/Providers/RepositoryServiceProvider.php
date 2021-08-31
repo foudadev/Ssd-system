@@ -16,7 +16,15 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Http\Interfaces\AdminRepositoryInterface',
             'App\Http\Repository\AdminRepository');
+
+        $this->app->bind(
+                'App\Http\Interfaces\UserInterface',
+                'App\Http\Repository\UserRepository');
+
     }
+
+
+
 
     /**
      * Bootstrap services.

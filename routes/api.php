@@ -1,5 +1,5 @@
 <?php
-
+use API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'],function (){
     Route::post('login', 'API\AdminController@index');
-    // you masy login in system 
+    // you masy login in system
     Route::middleware('auth:admin-api')->group(function(){
         Route::post('logout','API\AdminController@logout');
     });
 });
+
+Route::apiResource('user','API\UserController');
+
+
